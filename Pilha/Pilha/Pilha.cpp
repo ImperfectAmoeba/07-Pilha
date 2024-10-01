@@ -59,7 +59,7 @@ void menu()
 void inicializar()
 {
 
-	// se a lista j� possuir elementos
+	// se a lista já possuir elementos
 	// libera a memoria ocupada
 	NO* aux = topo;
 	while (aux != NULL) {
@@ -77,23 +77,37 @@ void inicializar()
 void push()
 {
 	// aloca memoria dinamicamente para o novo elemento
-	NO* novo = (NO*)malloc(sizeof(NO));
+	NO* novo = (NO*)malloc(sizeof(NO)); //criou um nó "novo"
 	if (novo == NULL)
 	{
 		return;
 	}
 
+
 	cout << "Digite o elemento: ";
-	cin >> novo->valor;
-	novo->prox = NULL;
+	cin >> novo->valor; //"valor" é o que o usuario digitou, novo representa o fato de ele ser  mais recente valor digitado
+	novo->prox = NULL; //não há nada após este valor digitado
 
-
+	if (novo->prox != NULL) //caso HAJA um numero apos o digitado
+	{
+		novo->prox == anterior;
+	}
 }
 
 void pop()
 {
+	NO* aux = topo;
+	while (aux != NULL)
+	{
+		NO* excluir = aux;
+		aux = aux->prox;
+		cout << aux << " removido." << endl;
+		free(excluir);
+	}
 
-	
-
+	if (aux == NULL) {
+		cout << "Lista vazia." << endl;
+			return;
+	}
 }
 
