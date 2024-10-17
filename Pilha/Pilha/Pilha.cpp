@@ -62,12 +62,7 @@ void inicializar()
 	// se a lista já possuir elementos
 	// libera a memoria ocupada
 	NO* aux = topo;
-	while (aux != NULL) {
-		NO* paraExcluir = aux;
-		aux = aux->prox;
-		free(paraExcluir);
-	}
-
+	
 	topo = NULL;
 	cout << "Pilha inicializada \n";
 
@@ -86,28 +81,24 @@ void push()
 
 	cout << "Digite o elemento: ";
 	cin >> novo->valor; //"valor" é o que o usuario digitou, novo representa o fato de ele ser  mais recente valor digitado
-	novo->prox = NULL; //não há nada após este valor digitado
-
-	if (novo->prox != NULL) //caso HAJA um numero apos o digitado
-	{
-		novo->prox == anterior;
-	}
+	novo->valor = topo;
+	topo = novo;
+	cout << "Elemento inserido." >> endl;
 }
 
 void pop()
 {
-	NO* aux = topo;
-	while (aux != NULL)
+	if(topo == NULL)
 	{
-		NO* excluir = aux;
-		aux = aux->prox;
-		cout << aux << " removido." << endl;
-		free(excluir);
+		cout << "A lista está vazia" << endl;
+		return;
 	}
 
-	if (aux == NULL) {
-		cout << "Lista vazia." << endl;
-			return;
-	}
+	int remover = topo->valor;
+
+	NO* paraExcluir = topo;
+	topo = topo->prox;
+	free(paraExcluir);
+	cout << "Elemento removido: " << remover << endl;
 }
 
